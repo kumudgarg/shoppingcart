@@ -1,18 +1,21 @@
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 public class ShoppingCart {
 
-    public double addToCart(Object apple, int noOfItem) {
-        List<Object> list = Collections.nCopies(noOfItem, apple);
-        double totalPrice = calcualteTotalForAddedApples(noOfItem);
+
+
+    public double addToCart(Product... products) {
+        List list = new ArrayList();
+        Arrays.stream(products).forEach(product -> list.add(product));
+        double totalPrice = calcualteTotalPrice(list);
         return totalPrice;
     }
 
-    public double calcualteTotalForAddedApples(int noofItem) {
-        double totalPrice = noofItem * 0.99;
-        return totalPrice;
-    }
 
+    public double calcualteTotalPrice(List<Product> productList) {
+        double sum = productList.stream().mapToDouble(product -> product.item.price * product.quantity).sum();
+        return sum;
+    }
 }
