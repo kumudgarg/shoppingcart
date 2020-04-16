@@ -13,7 +13,8 @@ public class ShoppingCart {
             List list = new ArrayList();
             Arrays.stream(products).forEach(product -> list.add(product));
             double totalPrice = calcualteTotalPrice(list);
-            double saleTaxAmount = saleTaxAmout(totalPrice);
+            SaleTax saleTax = new SaleTax();
+            double saleTaxAmount = saleTax.saleTaxAmout(totalPrice);
             double grandTotal = saleTaxAmount + totalPrice;
             DecimalFormat df2 = new DecimalFormat("#.##");
             String exactTotal = df2.format(grandTotal);
@@ -30,9 +31,5 @@ public class ShoppingCart {
         return sum;
     }
 
-    public double saleTaxAmout(double totalPrice){
-        double saleTaxAmount = (SaleTax.saleTaxRate * totalPrice) / 100;
-        return saleTaxAmount;
 
-    }
 }
