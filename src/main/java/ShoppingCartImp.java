@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ShoppingCartImp {
+public class ShoppingCartImp implements ShoppingCart {
 
     public String addToCart(Product... products) throws ShoppingCartException{
         try {
@@ -21,7 +21,7 @@ public class ShoppingCartImp {
         }
     }
 
-    private double calcualteTotalPrice(List<Product> productList) {
+    public double calcualteTotalPrice(List<Product> productList) {
         double sum = productList.stream().mapToDouble(product -> product.item.price * product.quantity).sum();
         return sum;
     }
