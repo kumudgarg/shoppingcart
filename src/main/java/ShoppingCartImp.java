@@ -3,30 +3,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ShoppingCart {
-
-
+public class ShoppingCartImp {
 
     public String addToCart(Product... products) throws ShoppingCartException{
         try {
-
             List list = new ArrayList();
             Arrays.stream(products).forEach(product -> list.add(product));
-            double totalPrice = calcualteTotalPrice(list);
+            double actualPrice = calcualteTotalPrice(list);
             SaleTax saleTax = new SaleTax();
-            double saleTaxAmount = saleTax.saleTaxAmout(totalPrice);
-            double grandTotal = saleTaxAmount + totalPrice;
-            DecimalFormat df2 = new DecimalFormat("#.##");
-            String exactTotal = df2.format(grandTotal);
-            return exactTotal;
+            double saleTaxAmount = saleTax.saleTaxAmout(actualPrice);
+            OutputDto outputDto = new OutputDto();
+            String totalBill = outputDto.totalBill(actualPrice, saleTaxAmount);
+            return totalBill;
         }
         catch (RuntimeException ex){
             throw new ShoppingCartException(ex.getMessage(), ShoppingCartException.ExceptionType.NULL_ITEM);
         }
     }
 
-
-    public double calcualteTotalPrice(List<Product> productList) {
+    private double calcualteTotalPrice(List<Product> productList) {
         double sum = productList.stream().mapToDouble(product -> product.item.price * product.quantity).sum();
         return sum;
     }

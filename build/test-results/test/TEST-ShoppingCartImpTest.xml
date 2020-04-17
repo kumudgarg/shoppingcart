@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ShoppingCartImpTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-04-17T07:53:17" hostname="kumuds-MacBook-Pro.local" time="0.011">
+  <properties/>
+  <testcase name="givenAShppingCart_WhenAddedANullProduct_ShouldThrowCustomException" classname="ShoppingCartImpTest" time="0.006"/>
+  <testcase name="givenAShoppingCart_When2ApplesOf$0Point99EachAreAddedAndAnotherAppleIsAddedAnd3MasksOf$1Point99EachAreAdded_ThenTheCartTotalIs$9Point12AndTheSalesTaxIs$0Point18" classname="ShoppingCartImpTest" time="0.004"/>
+  <testcase name="givenAnEmptyShoppingCart_When5ApplesOf$0Point99EachAreAdded_ThenTheCartTotalIs$4Point95" classname="ShoppingCartImpTest" time="0.001"/>
+  <testcase name="givenAShoppingCart_When3ApplesOf$0Point99EachAnd3MasksOf$1Point99EachAreAdded_ThenTheCartTotalIs$8Point94$" classname="ShoppingCartImpTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
